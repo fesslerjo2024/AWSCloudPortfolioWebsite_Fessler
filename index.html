@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jonathan Fessler | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2433fb3e66.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css?v=23">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="header">
+    <canvas id="code-bg"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo">Portfolio</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="text-box">
+        <h1>Jonathan Fessler</h1>
+        <p>Computer Science Student • Developer</p>
+        <a href="#projects" class="hero-btn">View My Work</a>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+    <h1>Projects</h1>
+
+    <div class="project-list">
+
+        <div class="project-item">
+            <h3><a href="https://github.com/fesslerjo2024/WeatherAppJava_Fessler">Weather App (Java)</a></h3>
+            <p>
+                Built a Java weather application as part of a Spring class final project. This app integrates with external APIs  
+                (like Open-Meteo and Zippopotam.us) to fetch real weather data and display it in a user-friendly format.  
+                I focused on backend logic, API calls, and structuring the code for maintainability and clarity.  
+                Check it out on GitHub:  
+            </p>
+        </div>
+
+        <div class="project-item">
+            <h3><a href="https://github.com/fesslerjo2024/MovieDatabase_Fessler">Movie Database App (C#)</a></h3>
+            <p>
+                Developed a full movie database management application using C# and Windows Forms. This project lets users  
+                view and modify movie entries with custom forms for adding, editing, and displaying movie data programmatically.  
+                It includes models, data layers, and UI components I built from scratch.  
+                See it on GitHub:   
+            </p>
+        </div>
+
+        <div class="project-item">
+            <h3><a href="https://github.com/fesslerjo2024/MarketMates_Database">MarketMates SQL Database (SQL)</a></h3>
+            <p>
+                For my database final project, I designed and built a relational SQL database from requirements, wrote  
+                schema and query files, and implemented tables with relationships, constraints, and example data.  
+                I practiced writing complex SELECT, INSERT, UPDATE, and DELETE statements as well as normalization  
+                and entity relationship modeling to support efficient data retrieval and consistency.  
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h1>Contact Me</h1>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <h3>Email</h3>
+            <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-line"></div>
+            <a href="mailto:fesslerjo2024@gmail.com" class="contact-link">
+                fesslerjo2024@gmail.com
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>GitHub</h3>
+            <div class="contact-icon">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-line"></div>
+            <a href="https://github.com/jonathanfessler" target="_blank">
+                github.com/fesslerjo2024
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>Resume</h3>
+            <div class="contact-icon">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+            <div class="contact-line"></div>
+            <a href="resume.html">View My Resume</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Jonathan Fessler
+</footer>
+
+<!-- MATRIX CODE JAVASCRIPT -->
+<script>
+const canvas = document.getElementById('code-bg');
+const ctx = canvas.getContext('2d');
+
+// Function to resize canvas to match the header
+function resizeCanvas() {
+    const header = canvas.parentElement;
+    canvas.width = header.offsetWidth;
+    canvas.height = header.offsetHeight;
+}
+
+// Initial size
+resizeCanvas();
+
+// Update canvas size on window resize
+window.addEventListener('resize', resizeCanvas);
+
+// Characters for code effect
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const fontSize = 16;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+// Draw function
+function draw() {
+    // Semi-transparent background for trail effect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#0F0'; // green code
+    ctx.font = fontSize + 'px monospace';
+
+    // Update number of columns if canvas resized
+    columns = Math.floor(canvas.width / fontSize);
+    if (drops.length !== columns) {
+        drops = Array(columns).fill(1);
+    }
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop randomly after it reaches bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+// Animation loop
+setInterval(draw, 35);
+</script>
+
+</body>
+</html>

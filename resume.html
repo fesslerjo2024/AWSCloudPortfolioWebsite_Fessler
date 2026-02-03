@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jonathan Fessler | Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css?v=23">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="header" style="min-height: 50vh;">
+    <canvas id="code-bg"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo">Portfolio</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="text-box">
+        <h1>Resume</h1>
+        <p>Education • Skills • Experience</p>
+    </div>
+</section>
+
+<section class="projects">
+
+    <!-- EDUCATION -->
+    <div class="resume-section">
+        <h2>Education</h2>
+
+        <div class="education-item">
+            <h3>Stuart Public School</h3>
+            <p class="education-meta">High School Diploma | Stuart, Nebraska</p>
+            <p class="resume-item">
+                Graduated with a strong foundation in mathematics, problem solving,
+                and computer fundamentals.
+            </p>
+        </div>
+
+        <div class="education-item">
+            <h3>Northeast Community College</h3>
+            <p class="education-meta">Computer Science | Currently Enrolled</p>
+            <p class="resume-item">
+                Currently pursuing a degree in computer science with coursework
+                focused on programming, databases, and software development.
+            </p>
+        </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="resume-section">
+        <h2>Skills</h2>
+
+        <div class="resume-block">
+            <p>C# application development and object oriented programming</p>
+            <p>Java programming with inheritance and interfaces</p>
+            <p>HTML, CSS, and responsive web design</p>
+            <p>SQL queries, database design, and normalization</p>
+            <p>Debugging, testing, and problem solving</p>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="resume-section">
+        <h2>Experience</h2>
+
+        <div class="resume-block">
+            <h3>Academic Projects</h3>
+            <p>
+                Designed and implemented multiple Java applications emphasizing clean code,
+                maintainable structure, and object oriented principles.
+            </p>
+            <p>
+                Built multi page websites using modern HTML and CSS techniques with a focus
+                on usability and layout.
+            </p>
+        </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="resume-section">
+        <h2>Certifications</h2>
+
+        <div class="resume-block">
+            <p>TestOut Hybrid Server Pro Core</p>
+            <a href="https://certification.testout.com/managecert?certificateID=6-1C6-2UNF4E"
+               target="_blank"
+               class="resume-link">
+                Verification Link
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Jonathan Fessler
+</footer>
+
+<!-- MATRIX CODE JAVASCRIPT -->
+<script>
+const canvas = document.getElementById('code-bg');
+const ctx = canvas.getContext('2d');
+
+// Function to resize canvas to match the header
+function resizeCanvas() {
+    const header = canvas.parentElement;
+    canvas.width = header.offsetWidth;
+    canvas.height = header.offsetHeight;
+}
+
+// Initial size
+resizeCanvas();
+
+// Update canvas size on window resize
+window.addEventListener('resize', resizeCanvas);
+
+// Characters for code effect
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const fontSize = 16;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+// Draw function
+function draw() {
+    // Semi-transparent background for trail effect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#0F0'; // green code
+    ctx.font = fontSize + 'px monospace';
+
+    // Update number of columns if canvas resized
+    columns = Math.floor(canvas.width / fontSize);
+    if (drops.length !== columns) {
+        drops = Array(columns).fill(1);
+    }
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop randomly after it reaches bottom
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+// Animation loop
+setInterval(draw, 35);
+</script>
+
+</body>
+</html>
