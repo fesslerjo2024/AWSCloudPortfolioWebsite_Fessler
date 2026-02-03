@@ -1,6 +1,6 @@
 # Jonathan Fessler Portfolio
 
-This is my personal portfolio website showcasing my projects, skills, resume, and contact information. The site features a modern, responsive design with a dynamic “Matrix-style” animated background on the hero section. Built with HTML, CSS, and JavaScript, the site is fully responsive and optimized for a smooth user experience.
+This is my personal portfolio website showcasing my projects, skills, resume, and contact information. Built with HTML, CSS, and JavaScript, the site is fully responsive and optimized for a smooth user experience.
 
 ## Hosting & Domain
 
