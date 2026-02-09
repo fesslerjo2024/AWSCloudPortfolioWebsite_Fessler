@@ -8,7 +8,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2433fb3e66.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="styles.css?v=23">
+    <link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body>
 
@@ -79,39 +79,42 @@
 
     <div class="contact-container">
 
-        <div class="contact-card">
+        <a href="mailto:fesslerjo2024@gmail.com" class="contact-card">
             <h3>Email</h3>
             <div class="contact-icon">
                 <i class="fa-solid fa-envelope"></i>
             </div>
             <div class="contact-line"></div>
-            <a href="mailto:fesslerjo2024@gmail.com" class="contact-link">
+            <span class="contact-link">
                 fesslerjo2024@gmail.com
-            </a>
-        </div>
+            </span>
+        </a>
 
-        <div class="contact-card">
+        <a href="https://github.com/fesslerjo2024" target="_blank" class="contact-card">
             <h3>GitHub</h3>
             <div class="contact-icon">
                 <i class="fa-brands fa-github"></i>
             </div>
             <div class="contact-line"></div>
-            <a href="https://github.com/jonathanfessler" target="_blank">
+            <span class="contact-link">
                 github.com/fesslerjo2024
-            </a>
-        </div>
+            </span>
+        </a>
 
-        <div class="contact-card">
+        <a href="resume.html" class="contact-card">
             <h3>Resume</h3>
             <div class="contact-icon">
                 <i class="fa-solid fa-file-lines"></i>
             </div>
             <div class="contact-line"></div>
-            <a href="resume.html">View My Resume</a>
-        </div>
+            <span class="contact-link">
+                View My Resume
+            </span>
+        </a>
 
     </div>
 </section>
+
 
 <footer>
     © 2026 Jonathan Fessler
@@ -136,7 +139,7 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 // Characters for code effect
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$*&?';
 const fontSize = 16;
 let columns = Math.floor(canvas.width / fontSize);
 let drops = Array(columns).fill(1);
