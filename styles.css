@@ -157,6 +157,9 @@ nav {
     background: #333;
     padding: 60px 30px;
     border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -184,27 +187,15 @@ nav {
     border-radius: 2px;
 }
 
-.contact-card p,
-.contact-card a {
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-    word-break: break-word;
-}
-
-.contact-card a:hover {
-    color: #f44336;
-}
-
 .contact-link {
+    font-size: 18px;
     color: #bbb;
-    text-decoration: none;
-    transition: 0.3s;
+    word-break: break-word;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.contact-link:hover {
+.contact-card:hover .contact-link {
     color: #f44336;
-    transform: translateY(-2px);
 }
 
 /* RESUME */
@@ -245,9 +236,9 @@ nav {
 }
 
 .education-item:not(:last-child) {
-    border-bottom: 1px solid #ccc; /* the line color */
-    padding-bottom: 20px;          /* space below the item */
-    margin-bottom: 20px;           /* space above the next item */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 /* FOOTER */
